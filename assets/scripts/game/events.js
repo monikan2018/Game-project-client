@@ -9,13 +9,14 @@ const store = require('../store')
 
 
 const onNewGame = function(event){
-  logic.initialize()
+  logic.initialize
   api.createGame()
       .then(ui.newGameSuccess)
       .catch(ui.newGameFailure)
   }
 
-const onClickBox = function(){
+const onClickBox = function(event){
+  const box = $(event.target)
      if (store.gameOver){
        ui.gameOver()
      }else if($(event.target).text() !==''){
@@ -24,16 +25,18 @@ const onClickBox = function(){
        const index = $(event.target).data('_id')
        api.updateGame(index, store.currentPlayer, false)
             .then(data  =>{
-              $(event.target).text(store.currentPlayer)
+              //$(event.target).text(store.currentPlayer)
               $store.board[index] =store.currentPlayer
               logic.checkboard()
               logic.switchPlayer()
+              ui.onUpdateSuccess
             })
+          .catch(ui.onUpdateFailure)
      }
 }
 
 
-const onViewGames = function(event){
+const onViewAllGames = function(event){
   //make API call to get all of the games played by the user
   api.index()
      .then(ui.onIndexSuccess)//pass the data if successful
@@ -42,7 +45,7 @@ const onViewGames = function(event){
 
 
 module.exports = {
-  onViewGames,
+  onViewAllGames,
   onNewGame,
   onClickBox
 }

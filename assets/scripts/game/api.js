@@ -32,7 +32,7 @@ const createGame = function () {
       Authorization: 'Token token=' + store.user.Token
     },
     method: 'POST',
-    data: {}
+    data: ''
   })
 }
 

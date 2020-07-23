@@ -13,8 +13,14 @@
 
 //initialize
 const initialize = function(event){
-  currentPlayer = 'X'
-  over = false
+  store.currentPlayer = 'X'
+  store.gameOver = ''
+  store.board=[]
+  store.player='O',
+  store.winner='',
+  store.looser='',
+  store.tie='false'
+  $('.box').on()
 }
 
 //check winning conditions
@@ -42,8 +48,9 @@ const checkboard = function(){
 
 //switch player
 const switchPlayer = function(){
+    const box = $(event.target)
+    box.css('background','lightskyblue'.text(currentPlayer))
     currentPlayer = currentPlayer === 'X'?'Y':'X'
-    player = player === 'X'?'Y':'X'
 }
 
 //create the array board in store

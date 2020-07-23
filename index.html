@@ -12,17 +12,22 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
   <body>
+    <!-- navigation bar for authenitication -->
     <nav class="navbar navbar-default navbar-dark" style="background-color:#9ae5e5;" >
           <div class="nav mx-auto">
              <h1>Tic-Tac-Toe</h1>
           </div>
+          <!-- list of items in Navigation bar -->
           <ul class="nav justify-content-end">
+            <!-- sign-up link -->
                 <li class="nav-item">
                   <a id="nav-sign-up" class="nav-link" href="#" data-toggle="modal" data-target="#signUpModal">Sign-up</a>
                 </li>
+            <!-- sign-in link-->
                 <li class="nav-item">
                   <a id="nav-sign-in" class="nav-link" href="#" data-toggle="modal" data-target='#signInModal'>Sign-in</a>
                 </li>
+
                 <li class="nav-item">
                   <a id="nav-change-password" class="nav-link disabled" aria-disabled="true" href="#" data-toggle="modal" data-target="#changePasswordModal">Change password</a>
                 </li>
@@ -140,12 +145,11 @@
     <div class='col-4 box'></div>
     <div class='col-4 box'></div>
   </div>
-  <div class='row startButton'>
-    <div class='col-6 offset-md-5 btnStart' justify-content-center>
-      <button type="button" id="btnStartGame" class="btn btn-success btn-lg disabled">Start</button>
-    </div>
+  <div class= 'row' h-20 w-20>
+   <div class='col-6 offset-md-5 btnStart h=5 w-10' justify-content-center>
+    <button type="button" id="btnStartGame" class="btn btn-success btn-lg disabled">Start</button>
+   </div>
   </div>
 </section>
-
 </body>
 </html>

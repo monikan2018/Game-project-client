@@ -1,8 +1,9 @@
 'use strict'
 
 const store = {
-    board:[],
+    board:["","","","","","","",""],
     gameOver:'over',
+    false:'true',
     currentPlayer:'X',
     player:'O',
     winner:'',

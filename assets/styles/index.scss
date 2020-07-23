@@ -13,9 +13,11 @@ body{
 .container{
   //set the conatiner take the view
   height:80vh;
-
 }
-
+@keyframes spotTaken {
+    background-color: lightskyblue;
+    background-color: red;
+}
 
 .board{
   //setting the margin to auto will make the left and right m
