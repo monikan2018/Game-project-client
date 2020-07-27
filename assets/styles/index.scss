@@ -15,8 +15,8 @@ body{
   height:80vh;
 }
 @keyframes spotTaken {
-    background-color: lightskyblue;
-    background-color: red;
+  0%{ background-color: white;}
+  100%{  background-color: red;}
 }
 
 .board{

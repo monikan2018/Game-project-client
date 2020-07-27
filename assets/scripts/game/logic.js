@@ -1,75 +1,66 @@
 'use strict'
  const store = require ('../store')
 
-  let win_Cond1 = ['1','2','3']
-  let win_Cond2 = ['4','5','6']
-  let win_Cond3 = ['7','8','9']
-  let win_Cond4 = ['1','5','9']
-  let win_Cond5 = ['3','5','7']
-  let win_Cond6 = ['1','4','7']
-  let win_Cond7 = ['2','5','8']
-  let win_Cond8 = ['3','6','9']
+
+  let win_cond = [
+    ['0','1','2'],
+    ['3','4','5'],
+    ['6','7','8'],
+    ['0','4','8'],
+    ['2','4','6'],
+    ['0','3','6'],
+    ['1','4','7'],
+    ['2','5','8']];
 
 
 //initialize
-const initialize = function(event){
-  store.currentPlayer = 'X'
-  store.gameOver = ''
-  store.board=[]
-  store.player='O',
-  store.winner='',
-  store.looser='',
-  store.tie='false'
-  $('.box').on()
+const resetVariables = function(){
+   $('.box').disabled = false
+   $('.box').text('')
+   store.currentPlayer = 'X'
+   store.gameOver = false
+   store.gameStatus =''
+   store.board=["","","","","","","","",""]
+}
+
+const checkWinConditions = function(){
+  for(let i =0; i <=7 ; i++){
+    //find the length for inner array
+    const innerArray = win_cond[i];
+    let a = store.board[innerArray[0]];
+    let b = store.board[innerArray[1]];
+    let c = store.board[innerArray[2]];
+    if(a === '' || b=== '' || c === ''){
+      continue;
+    }else if((a === b )&& (b === c)){
+      return true;
+    }
+  }
 }
 
 //check winning conditions
 const checkboard = function(){
-  if(store.board.includes(win_Cond1)||
-     store.board.includes(win_Cond2)||
-     store.board.includes(win_Cond3)||
-     store.board.includes(win_Cond4)||
-     store.board.includes(win_Cond5)||
-     store.board.includes(win_Cond6)||
-     store.board.includes(win_Cond7)||
-     store.board.includes(win_Cond8)){
-       store.gameOver = 'over'
-       store.winner = currentPlayer
-       store.looser = player;
-  }
-  //check for tie
-  for(let i=0; i < 9; i++){
-    if(store.board[i] !== ''){
-           store.gameOver = 'over'
-           store.tie = 'true'
-    }
+  store.tieStatus = !store.board.includes('')
+  if(checkWinConditions() === true){
+    store.gameStatus = 'Hey Winner! '
+    store.gameOver = true
+  }else if(store.tieStatus === true){
+    console.log(store.tieStatus)
+      store.gameStatus = 'It is a tie! '
+      store.gameOver = true
   }
 }
 
 //switch player
 const switchPlayer = function(){
-    const box = $(event.target)
-    box.css('background','lightskyblue'.text(currentPlayer))
-    currentPlayer = currentPlayer === 'X'?'Y':'X'
+    let currentPlayer = store.currentPlayer
+    store.currentPlayer = currentPlayer === 'X'?'O':'X'
+    console.log(`sp: ${store.currentPlayer}`)
 }
 
-//create the array board in store
-//create new game
-//game 1
-
-//loop the game to let player play while i > 9
-//set the player to current player and and assign the value of X
-    //let the user clicks on the box
-    //store the position into array
-    //store the value
-//else
-//check if the array if full
-  //yes: pass the value of true for over
-  //no: value of over is 'false'
-//when the user clicks on the box select the box position
-    //if the position is taken
-        //yes: make the background color go red when clicked
-              //let user click on the right box
-       //no: check if the player for win/loose/tie condition
-       //store the position into the array
-       //Store the value
+module.exports = {
+  resetVariables,
+  checkboard,
+  checkWinConditions,
+  switchPlayer
+}

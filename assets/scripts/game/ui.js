@@ -1,7 +1,13 @@
+'use strict'
 
 const store = require ('../store')
+
 const newGameSuccess = function(response){
-  $('#message').text("Let's play !")
+  $('#message').text("New Game Started !")
+  store.game = response.game
+  store.game._id = response.game._id
+   console.log('game',store.game)
+    console.log('gameID',store.game._id)
 }
 
 const newGameFailure = function(error){
@@ -9,42 +15,39 @@ const newGameFailure = function(error){
 }
 
 const gameOver = function(){
-  $('#message').text("Click on the 'start' to start a new game!")
+  $('#message').text(`${store.gameStatus} Start a new game!`)
+  $('#btnStartGame').text("Restart")
+  $('.box').disabled = true
 }
 
-const Taken = function(){
-
-  if(store.winner === "true"){
-    $('#message').text(`Congratulations ${store.currentPlayer} ! you are the winner.`)
-  }else if(store.tie === "true"){
-      $('#message').text("It's a tie!")
-  }else{
-      $('#message').text("You lost the game!")
- }
-}
 const positionTaken = function(){
 $('#message').text("Pick another location!")
-box.css('animation','spotTaken 3s infinite')
 }
 
-const onUpdateSuccess = function(data){
-
+const updateGameSuccess = function(response){
+  store.game = response.game
+  store.game._id = response.game._id
+  console.log('store:',store.game)
+  if(store.gameOver){
+     gameOver()
+  }
 
 }
 
-const onUpdateFailure = function(){
-
-
+const updateGameFailure = function(){
+$('#message').text("Update Failure!")
 }
 
-const onIndexSuccess = function(){}
+const onIndexSuccess = function(response){
+  console.log(response)
+}
 const onIndexFailure = function(){}
 
 module.exports ={
   gameOver,
   positionTaken,
-  onUpdateFailure,
-  onUpdateSuccess,
+  updateGameFailure,
+  updateGameSuccess,
   newGameFailure,
   newGameSuccess,
   onIndexSuccess,

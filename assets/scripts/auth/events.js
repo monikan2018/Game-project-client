@@ -39,7 +39,6 @@ const onSignOut = function(event){
   api.signOut()
      .then(ui.signOutSuccess)
      .catch(ui.signOutFailure)
-$('#signOutModal').modal('hide')
 }
 
 module.exports = {

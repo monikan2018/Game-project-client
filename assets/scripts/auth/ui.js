@@ -39,6 +39,7 @@ const pwChangeFailure = function(){
 }
 
 const signOutSuccess = function(){
+  $('#signOutModal').modal('hide')
   $('#message').text("Signed you out!")
   $('#btnStartGame').attr('disabled',true)
   //Enable sign-up and sign-in and disable password-change and sign out
@@ -47,9 +48,9 @@ const signOutSuccess = function(){
   $('#nav-sign-out').removeClass('nav-link').addClass('nav-link disabled')
   $('#nav-sign-in').removeClass('nav-link disabled').addClass('nav-link ')
   $('#nav-sign-up').removeClass('nav-link disabled').addClass('nav-link')
-  $('#btnStartGame').attr('disabled',true)
 }
 const signOutFailure = function(){
+  $('#signOutModal').modal('hide')
   $('#message').text("Sign out Failed")
 
 }
@@ -63,5 +64,5 @@ module.exports = {
   pwChangeSuccess:pwChangeSuccess,
   pwChangeFailure:pwChangeFailure,
   signOutSuccess: signOutSuccess,
-  signOutFailure:signUpFailure
+  signOutFailure: signOutFailure
 }

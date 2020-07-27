@@ -8,30 +8,34 @@ const logic = require('./logic')
 const store = require('../store')
 
 
-const onNewGame = function(event){
-  logic.initialize
+const onNewGame = function(){
+  logic.resetVariables()
+  console.log(store.gameOver)
   api.createGame()
       .then(ui.newGameSuccess)
       .catch(ui.newGameFailure)
   }
 
 const onClickBox = function(event){
-  const box = $(event.target)
      if (store.gameOver){
        ui.gameOver()
-     }else if($(event.target).text() !==''){
+     }else if ($(event.target).text() !==''){
+      const box = $(event.target)
        ui.positionTaken()
+       //box.css('animation','spotTaken'10)
      }else {
-       const index = $(event.target).data('_id')
+       const index = $(event.target).data('id')
        api.updateGame(index, store.currentPlayer, false)
-            .then(data  =>{
-              //$(event.target).text(store.currentPlayer)
-              $store.board[index] =store.currentPlayer
+            .then(data =>{
+              const box = $(event.target)
+              box.css('background','lightskyblue')
+              box.text(store.currentPlayer)
+              store.board[index] = store.currentPlayer
               logic.checkboard()
               logic.switchPlayer()
-              ui.onUpdateSuccess
+              ui.updateGameSuccess(data)
             })
-          .catch(ui.onUpdateFailure)
+          .catch(ui.updateGameFailure)
      }
 }
 

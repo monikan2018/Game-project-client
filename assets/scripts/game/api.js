@@ -2,42 +2,53 @@
 const config = require('../config')
 const store = require('../store')
 
-const index = function(){
+const overGames = function(){
   return $.ajax({
-    url:config.apiUrl + '/games/over?',
+    url: config.apiUrl + '/games',
     method:'GET'
   })
+}
+const createGame = function(){
+  return $.ajax({
+    headers:{
+      Authorization: 'Token token=' + store.user.token
+    },
+    url: config.apiUrl + '/games',
+     method:'POST',
+     data:''
+ })
 }
 
 const updateGame = function (index, value, over) {
   return $.ajax({
-    url: config.apiUrl + `/games/${store.game.id}`,
-    method: 'PATCH',
+    url: config.apiUrl + `/games/${store.game._id}`,
+    headers:{
+      Authorization: 'Token token=' + store.user.token
+    },
+    method:'PATCH',
     data: {
-      'game':{
+      "game":{
         'cell':{
           'index': index,
           'value': value
           },
-      'over': over
+       'over': over
       }
     }
   })
 }
 
-const createGame = function () {
+
+const destroyGame = function(){
   return $.ajax({
-    url: config.apiUrl + `/games`,
-    headers:{
-      Authorization: 'Token token=' + store.user.Token
-    },
-    method: 'POST',
-    data: ''
+    url: config.apiUrl + `/games/${store.game._id}`,
+    method:'DELETE'
   })
 }
 
 module.exports = {
-  index,
+  overGames,
   updateGame,
-  createGame
+  createGame,
+  destroyGame
 }

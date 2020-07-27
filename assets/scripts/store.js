@@ -1,14 +1,11 @@
 'use strict'
 
 const store = {
-    board:["","","","","","","",""],
-    gameOver:'over',
-    false:'true',
+    board:["","","","","","","","",""],
+    gameOver:false,
     currentPlayer:'X',
-    player:'O',
-    winner:'',
-    looser:'',
-    tie:'false'
+    gameStaus:'',
+    tieStatus:false
 }
 
 module.exports = store
