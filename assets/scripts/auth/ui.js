@@ -12,13 +12,15 @@ const signUpFailure = function(){
 }
 const signInSuccess = function(response){
   $('#message').text('Successful sign-in!')
-  console.log(store)
+  $('.box').disabled = true
   store.user = response.user
   console.log('store:', store)
   console.log('token: ', store.user.token)
   $('#signInModal').modal('hide')
+  //To enable bar that has start button and games played by the user
+  $('#startBar').removeClass('disabled',false).addClass('enabled')
   //To enable the start button
- $('#btnStartGame').attr('disabled',false)
+ //$('#btnStartGame').attr('disabled',false)
 //Disable sign-up and sign-in and enable password-change and sign out
   $('#btnStartGame').removeClass('disabled').addClass('enabled')
   $('#nav-change-password').removeClass('nav-link disabled').addClass('nav-link')
@@ -41,13 +43,17 @@ const pwChangeFailure = function(){
 const signOutSuccess = function(){
   $('#signOutModal').modal('hide')
   $('#message').text("Signed you out!")
-  $('#btnStartGame').attr('disabled',true)
+//  $('#btnStartGame').attr('disabled',true)
+  //Disable the start bar
+  $('#startBar').removeClass('enabled').addClass('disabled')
   //Enable sign-up and sign-in and disable password-change and sign out
   $('#btnStartGame').removeClass('enabled').addClass('disabled')
   $('#nav-change-password').removeClass('nav-link').addClass('nav-link disabled')
   $('#nav-sign-out').removeClass('nav-link').addClass('nav-link disabled')
   $('#nav-sign-in').removeClass('nav-link disabled').addClass('nav-link ')
   $('#nav-sign-up').removeClass('nav-link disabled').addClass('nav-link')
+  //clear the screen
+  $('.box').text('')
 }
 const signOutFailure = function(){
   $('#signOutModal').modal('hide')

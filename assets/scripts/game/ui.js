@@ -38,10 +38,14 @@ const updateGameFailure = function(){
 $('#message').text("Update Failure!")
 }
 
-const onIndexSuccess = function(response){
-  console.log(response)
+const indexSuccess = function(response){
+    console.log(response)
+  const gamesUserPlayed= response.games.length
+
+  store.gamespl= response.games.length
+  $('#gamesPlayed').text(gamesUserPlayed)
 }
-const onIndexFailure = function(){}
+const indexFailure = function(){}
 
 module.exports ={
   gameOver,
@@ -50,6 +54,6 @@ module.exports ={
   updateGameSuccess,
   newGameFailure,
   newGameSuccess,
-  onIndexSuccess,
-  onIndexFailure
+  indexSuccess,
+  indexFailure
 }

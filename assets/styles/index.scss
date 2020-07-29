@@ -6,7 +6,7 @@ body{
 .msgheading{
    height: 7vh;
    background-color: $message_background;
-   margin-bottom: 2rem;
+   margin-bottom:2rem;
    font-size: 4vh;
 }
 
@@ -22,10 +22,11 @@ body{
 .board{
   //setting the margin to auto will make the left and right m
   //are same
+  margin-top:4rem;
   margin:auto;
   //create buffer around
-  max-height:calc(100vh - 75px);
-  max-width:calc(100vh - 75px);
+  max-height:calc(80vh - 75px);
+  max-width:calc(90vh - 55px);
 
   //background:url('public/cat.jpg');
   //set the background to never repeat
@@ -60,7 +61,7 @@ body{
     background-color: white;
 
     color:white;
-    font-size:15vh;
+    font-size:13vh;
 
     //to take the text more 3d, we add a ashandow 2 px below and to t
     //the right, that is black which is 25% transparent
@@ -70,12 +71,21 @@ body{
      background-color:lightskyblue;
     }
     user-select:none;
+    &:animate{
+     opacity:0.25;
+     background-color:'pink';
+     animation-duration: 3s;
+    }
 
+}
+.label{
+  margin-right: 2rem;
 }
 .startButton{
   display:flex;
-  align-items: center;
-  visibility: hidden;
+  align-items: left;
+  padding:2em,2em
+  //visibility: hidden;
 }
 .disabled{
     visibility: hidden;

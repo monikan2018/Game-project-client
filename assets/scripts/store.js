@@ -5,7 +5,8 @@ const store = {
     gameOver:false,
     currentPlayer:'X',
     gameStaus:'',
-    tieStatus:false
+    tieStatus:false,
+    gamespl:0
 }
 
 module.exports = store

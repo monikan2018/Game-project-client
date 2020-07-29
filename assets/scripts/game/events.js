@@ -9,6 +9,7 @@ const store = require('../store')
 
 
 const onNewGame = function(){
+  onViewAllGames()
   logic.resetVariables()
   console.log(store.gameOver)
   api.createGame()
@@ -17,12 +18,13 @@ const onNewGame = function(){
   }
 
 const onClickBox = function(event){
+     $('#btnStartGame').text("Restart")
      if (store.gameOver){
        ui.gameOver()
      }else if ($(event.target).text() !==''){
       const box = $(event.target)
-       ui.positionTaken()
-       //box.css('animation','spotTaken'10)
+      box.className = "animate";
+       ui.positionTaken(box)
      }else {
        const index = $(event.target).data('id')
        api.updateGame(index, store.currentPlayer, false)
@@ -42,9 +44,10 @@ const onClickBox = function(event){
 
 const onViewAllGames = function(event){
   //make API call to get all of the games played by the user
+  console.log('Reaching here')
   api.index()
-     .then(ui.onIndexSuccess)//pass the data if successful
-     .catch(ui.onIndexFailure)//show an error
+     .then(ui.indexSuccess)//pass the data if successful
+     .catch(ui.indexFailure)//show an error
 }
 
 
