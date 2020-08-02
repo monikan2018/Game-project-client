@@ -8,13 +8,15 @@ const ui = require('./ui')
 const logic = require('./logic')
 const store = require('../store')
 
+//show the board
+
 //To create new game
 const onNewGame = function(){
+  $('.box').show()
   //view games played
   onViewAllGames()
   //reset all the variables
   logic.resetVariables()
-  console.log(store.gameOver)
   //create the new game
   api.createGame()
       .then(ui.newGameSuccess)//if game is created

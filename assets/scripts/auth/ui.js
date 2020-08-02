@@ -29,7 +29,8 @@ const signInSuccess = function(response){
   $('#nav-sign-in').removeClass('nav-link ').addClass('nav-link disabled')
   $('#nav-sign-up').removeClass('nav-link').addClass('nav-link disabled')
   //Access to play game after you are signed-in
-
+  //display the board
+  store.gamePlay = true
 }
 const signInFailure = function(){
   $('#message').text("Sign-in failed!")
@@ -53,9 +54,8 @@ const signOutSuccess = function(){
   $('#nav-sign-out').removeClass('nav-link').addClass('nav-link disabled')
   $('#nav-sign-in').removeClass('nav-link disabled').addClass('nav-link ')
   $('#nav-sign-up').removeClass('nav-link disabled').addClass('nav-link')
-  //clear the screen
-  $('.box').text('')
-  $('.box').css('background','white')
+  //hide the board
+  $('.box').hide()
 }
 const signOutFailure = function(){
   $('#signOutModal').modal('hide')
