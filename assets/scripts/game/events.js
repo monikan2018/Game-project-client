@@ -12,7 +12,6 @@ const store = require('../store')
 
 //To create new game
 const onNewGame = function(){
-  $('.box').show()
   //view games played
   onViewAllGames()
   //reset all the variables
