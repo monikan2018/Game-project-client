@@ -22,8 +22,6 @@ const signInSuccess = function(response){
   $('#signInModal').modal('hide')
   //To enable bar that has start button and games played by the user
   $('#startBar').removeClass('disabled',false).addClass('enabled')
-  //To enable the start button
- //$('#btnStartGame').attr('disabled',false)
 //Disable sign-up and sign-in and enable password-change and sign out
   $('#btnStartGame').removeClass('disabled').addClass('enabled')
   $('#nav-change-password').removeClass('nav-link disabled').addClass('nav-link')
@@ -47,7 +45,6 @@ const pwChangeFailure = function(){
 const signOutSuccess = function(){
   $('#signOutModal').modal('hide')
   $('#message').text("Signed you out!")
-//  $('#btnStartGame').attr('disabled',true)
   //Disable the start bar
   $('#startBar').removeClass('enabled').addClass('disabled')
   //Enable sign-up and sign-in and disable password-change and sign out

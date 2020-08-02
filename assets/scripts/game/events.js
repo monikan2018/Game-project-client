@@ -55,7 +55,6 @@ const onClickBox = function(event){
 //View games played by the uer
 const onViewAllGames = function(event){
   //make API call to get all of the games played by the user
-  console.log('Reaching here')
   api.index()
      .then(ui.indexSuccess)//pass the data if successful
      .catch(ui.indexFailure)//show an error

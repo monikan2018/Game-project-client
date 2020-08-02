@@ -6,8 +6,7 @@ const newGameSuccess = function(response){
   $('#message').text("New Game Started !")
   store.game = response.game
   store.game._id = response.game._id
-   console.log('game',store.game)
-    console.log('gameID',store.game._id)
+   //console.log('game',store.game)
 }
 
 const newGameFailure = function(error){
@@ -29,7 +28,7 @@ $('#message.msgheading').text("Pick another location!").css('background','#F0808
 const updateGameSuccess = function(response){
   store.game = response.game
   store.game._id = response.game._id
-  console.log('store:',store.game)
+//  console.log('store:',store.game)
   if(store.gameOver){
      gameOver()
   }
