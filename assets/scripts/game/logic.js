@@ -17,6 +17,7 @@
 const resetVariables = function(){
    $('.box').disabled = false
    $('.box').text('')
+   $('.box').css('background-color','white')
    store.currentPlayer = 'X'
    store.gameOver = false
    store.gameStatus =''
@@ -42,10 +43,10 @@ const checkWinConditions = function(){
 const checkboard = function(){
   store.tieStatus = !store.board.includes('')
   if(checkWinConditions() === true){
-    store.gameStatus = 'Hey Winner! '
+    store.gameStatus = `Hey '${store.currentPlayer}', you are the winner!`
     store.gameOver = true
   }else if(store.tieStatus === true){
-    console.log(store.tieStatus)
+    //tie condition check
       store.gameStatus = 'It is a tie! '
       store.gameOver = true
   }
@@ -55,8 +56,11 @@ const checkboard = function(){
 const switchPlayer = function(){
     let currentPlayer = store.currentPlayer
     store.currentPlayer = currentPlayer === 'X'?'O':'X'
-    console.log(`sp: ${store.currentPlayer}`)
+    //console.log(`sp: ${store.currentPlayer}`)
+    $('.msgheading').css('background','#f5f5db')
+    $('#message').text(`' ${store.currentPlayer} ' your turn to play.`)
 }
+
 
 module.exports = {
   resetVariables,

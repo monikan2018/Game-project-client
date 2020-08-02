@@ -107,7 +107,6 @@
   </div>
 </section>
 <section class="authenicated-sign-out">
-
   <div class="modal fade" id="signOutModal" tabindex="-1"
   role="dialog" aria-labelledby="signOutModal" aria-hidden="true">
   <div class =modal-dialog>
@@ -126,19 +125,19 @@
  </div>
 </div>
 </section>
-<section class='msgheading'>
+<section class='msgheading' id="message">
 <div class="row" >
   <div class='col-md-6 offset-md-3'>
-    <p id='message'> Welcome! Let's Play tic-tac-toe.</p></div>
+    <p> Welcome! Let's Play tic-tac-toe.</p></div>
 </div>
 </section>
 <section class='container' >
   <div class="bg-info clearfix disabled" id="startBar" >
-    <button type="button" id="btnStartGame" class="btn btn-success btn-lg float-right ">Start</button>
+    <button type="button" id="btnStartGame" class="btn btn-success btn-lg float-right">Start Game</button>
     <button type="button" id="btnGamesPlayed" class="btn btn-secondary btn-lg float-left ">Games Played :</button>
-    <p class="float-left h4"  id="gamesPlayed">You have played 0 games</p>
+    <p id="gamesPlayed" class='lblgamesplayed'></p>
   </div>
-  <div class='row h-75 w-65 board'>
+  <div class='row h-75 w-85 board'>
     <div class='col-4 box' data-id='0'></div>
     <div class='col-4 box' data-id='1'></div>
     <div class='col-4 box' data-id='2'></div>

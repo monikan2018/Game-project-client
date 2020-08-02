@@ -15,13 +15,15 @@ const newGameFailure = function(error){
 }
 
 const gameOver = function(){
-  $('#message').text(`${store.gameStatus} Start a new game!`)
+  $('#message').text(`${store.gameStatus}`)
   $('#btnStartGame').text("Restart")
   $('.box').disabled = true
 }
 
 const positionTaken = function(){
-$('#message').text("Pick another location!")
+$('#message.msgheading').text("Pick another location!").css('background','#F08080')
+
+
 }
 
 const updateGameSuccess = function(response){
@@ -39,11 +41,7 @@ $('#message').text("Update Failure!")
 }
 
 const indexSuccess = function(response){
-    console.log(response)
-  const gamesUserPlayed= response.games.length
-
-  store.gamespl= response.games.length
-  $('#gamesPlayed').text(gamesUserPlayed)
+  $('#gamesPlayed').text(` You have played  ${response.games.length} games!`)
 }
 const indexFailure = function(){}
 

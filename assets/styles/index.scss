@@ -1,22 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
 @import './variables.scss';
 body{
-  background-color: grey;
+  background-image: url('tic-tac-toe-background.jpg');
+
 }
+
 .msgheading{
-   height: 7vh;
+   height: 10vh;
    background-color: $message_background;
    margin-bottom:2rem;
    font-size: 4vh;
+   text-align: justify;
+}
+#message {
+  text-align: center;
+  font-size: 2rem
 }
 
 .container{
   //set the conatiner take the view
   height:80vh;
-}
-@keyframes spotTaken {
-  0%{ background-color: white;}
-  100%{  background-color: red;}
 }
 
 .board{
@@ -28,7 +31,6 @@ body{
   max-height:calc(80vh - 75px);
   max-width:calc(90vh - 55px);
 
-  //background:url('public/cat.jpg');
   //set the background to never repeat
   background-repeat: no-repeat;
  //
@@ -70,23 +72,24 @@ body{
     &:hover{
      background-color:lightskyblue;
     }
+
     user-select:none;
-    &:animate{
-     opacity:0.25;
-     background-color:'pink';
-     animation-duration: 3s;
-    }
 
 }
+.lblgamesplayed{
+  text-align: center;
+  font-size: 1.3em;
+}
+
 .label{
   margin-right: 2rem;
-}
-.startButton{
-  display:flex;
-  align-items: left;
-  padding:2em,2em
-  //visibility: hidden;
-}
+  }
+// .startButton{
+//   display:flex;
+//   align-items: left;
+//   padding:2em,2em
+//   //visibility: hidden;
+//   }
 .disabled{
     visibility: hidden;
   }

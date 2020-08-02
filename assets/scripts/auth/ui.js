@@ -1,8 +1,10 @@
 'use strict'
 const store = require('../store')
+const gameEvents = require('../game/events')
 
 
 const signUpSuccess = function(response){
+  $('.box').disabled = true
   $('#message').text("")
   $('#message').text("Successful sign-up! Please Sign-in to play")
 }
@@ -15,7 +17,8 @@ const signInSuccess = function(response){
   $('.box').disabled = true
   store.user = response.user
   console.log('store:', store)
-  console.log('token: ', store.user.token)
+  //player can see the number of games played
+  gameEvents.onViewAllGames()
   $('#signInModal').modal('hide')
   //To enable bar that has start button and games played by the user
   $('#startBar').removeClass('disabled',false).addClass('enabled')
@@ -28,6 +31,7 @@ const signInSuccess = function(response){
   $('#nav-sign-in').removeClass('nav-link ').addClass('nav-link disabled')
   $('#nav-sign-up').removeClass('nav-link').addClass('nav-link disabled')
   //Access to play game after you are signed-in
+
 }
 const signInFailure = function(){
   $('#message').text("Sign-in failed!")
@@ -54,6 +58,7 @@ const signOutSuccess = function(){
   $('#nav-sign-up').removeClass('nav-link disabled').addClass('nav-link')
   //clear the screen
   $('.box').text('')
+  $('.box').css('background','white')
 }
 const signOutFailure = function(){
   $('#signOutModal').modal('hide')

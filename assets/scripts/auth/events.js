@@ -4,7 +4,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
-
+//To sign-up for the game
 const onSignUp = function(event){
   event.preventDefault()
   const form = event.target
@@ -14,6 +14,7 @@ const onSignUp = function(event){
        .catch(ui.signUpFailure)
  $('#signUpModal').modal('hide')
 }
+//To sign-in
 const onSignIn = function(event){
   event.preventDefault()
   const form = event.target
@@ -23,6 +24,7 @@ const onSignIn = function(event){
        .catch(ui.signInFailure)
 $('#signInModal').modal('hide')
 }
+//To change password
 const onChangePassword = function(event){
   event.preventDefault()
   const form = event.target
@@ -32,6 +34,7 @@ const onChangePassword = function(event){
        .catch(ui.pwChangeFailure)
 $('#changePasswordModal').modal('hide')
 }
+//To sign-out
 const onSignOut = function(event){
   event.preventDefault()
   const form=event.taqrget
