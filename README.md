@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Play Solo Tic-tac-toe
 This is a web application the let the player to play tic-tac-toe game solo. In order to play, the player must sign-up and then sign-in to play.  After the player sign-in they can see the number of games they have played so far and can start a new game if unhappy with the current one. The application also allows the player to change password and sign out when they are done.
 
@@ -33,3 +34,6 @@ This is a web application the let the player to play tic-tac-toe game solo. In o
 
 ## Images/Wireframes
 https://app.lucidchart.com/documents/view/9059fba7-4342-46e2-bda8-49c560ee7300/0_0
+=======
+
+>>>>>>> a41f904977feed97ba51a844fa738dcabb02cfe1
