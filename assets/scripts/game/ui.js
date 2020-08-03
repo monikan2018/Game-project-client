@@ -3,6 +3,8 @@
 const store = require ('../store')
 
 const newGameSuccess = function(response){
+    //display the board
+  $('.box').show()
   $('#message').text("New Game Started !")
   store.game = response.game
   store.game._id = response.game._id

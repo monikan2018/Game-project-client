@@ -14,8 +14,10 @@ const store = require('../store')
 const onNewGame = function(){
   //view games played
   onViewAllGames()
+  $('.box').gamePlay = true
   //reset all the variables
   logic.resetVariables()
+  $('#btnStartGame').removeClass('disabled').addClass('enabled')
   //create the new game
   api.createGame()
       .then(ui.newGameSuccess)//if game is created

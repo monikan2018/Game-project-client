@@ -16,7 +16,7 @@ const signInSuccess = function(response){
   $('#message').text('Successful sign-in!')
   $('.box').disabled = true
   store.user = response.user
-  console.log('store:', store)
+  //console.log('store:', store)
   //player can see the number of games played
   gameEvents.onViewAllGames()
   $('#signInModal').modal('hide')
@@ -30,7 +30,6 @@ const signInSuccess = function(response){
   $('#nav-sign-up').removeClass('nav-link').addClass('nav-link disabled')
   //Access to play game after you are signed-in
   //display the board
-  store.gamePlay = true
 }
 const signInFailure = function(){
   $('#message').text("Sign-in failed!")
