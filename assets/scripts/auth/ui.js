@@ -29,7 +29,7 @@ const signInSuccess = function(response){
   $('#nav-sign-in').removeClass('nav-link ').addClass('nav-link disabled')
   $('#nav-sign-up').removeClass('nav-link').addClass('nav-link disabled')
   //Access to play game after you are signed-in
-  //display the board
+
 }
 const signInFailure = function(){
   $('#message').text("Sign-in failed!")
