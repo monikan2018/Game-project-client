@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Tic-Tac-Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+  <body>
+    <!-- navigation bar for authenitication -->
+    <nav class="navbar navbar-default navbar-dark" style="background-color:#9ae5e5;" >
+          <div class="nav mx-auto">
+             <h1>Tic-Tac-Toe</h1>
+          </div>
+          <!-- list of items in Navigation bar -->
+          <ul class="nav justify-content-end">
+            <!-- sign-up link -->
+                <li class="nav-item">
+                  <a id="nav-sign-up" class="nav-link" href="#" data-toggle="modal" data-target="#signUpModal">Sign-up</a>
+                </li>
+            <!-- sign-in link-->
+                <li class="nav-item">
+                  <a id="nav-sign-in" class="nav-link" href="#" data-toggle="modal" data-target='#signInModal'>Sign-in</a>
+                </li>
+
+                <li class="nav-item">
+                  <a id="nav-change-password" class="nav-link disabled" aria-disabled="true" href="#" data-toggle="modal" data-target="#changePasswordModal">Change password</a>
+                </li>
+                <li class="nav-item">
+                  <a id="nav-sign-out" class="nav-link disabled" aria-disabled="true" data-toggle="modal" data-target="#signOutModal"  href="#" >Sign-out</a>
+                </li>
+         </ul>
+    </nav>
+    <!--Modals-->
+<section class="unathenticated">
+     <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="signUpModal" aria-hidden="true">
+      <div class =modal-dialog>
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Sign up!</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+          </div>
+         <div class="modal-body">
+            <form id="sign-up">
+                <input name= "credentials[email]" class="form-control" id="sign-up-email" placeholder="Enter you email" type="email">
+                <input name="credentials[password]" class="form-control" id="sign-up-password" placeholder="password" type="password">
+                <input name="credentials[password_confirmation]" class="form-control" id="sign-up-confirm" placeholder="password" type="password">
+              <button type="submit" class="btn btn-primary">Sign Up!</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+           </form>
+         </div>
+       </div>
+       </div>
+     </div>
+   </section>
+   <section class="authenicated-sign-in">
+     <div class="modal fade" id="signInModal" tabindex="-1"
+     role="dialog" aria-labelledby="signInModal" aria-hidden="true">
+      <div class=modal-dialog>
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title">Sign In!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-in">
+              <input name="credentials[email]" class="form-control" placeholder="email" type="email">
+              <input name="credentials[password]" class="form-control" placeholder='password' type="password">
+           <button type="submit" class="btn btn-primary">Sign In!</button>
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+         </form>
+      </div>
+     </div>
+    </div>
+   </div>
+ </section>
+ <section class="authenicated-change-password">
+   <div class="modal fade" id="changePasswordModal" tabindex="-1"
+   role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+    <div class=modal-dialog>
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Password change!</h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+      </div>
+     <div class="modal-body">
+       <form id="change-password">
+         <input name="passwords[old]" class="form-control" placeholder="old password" type="password">
+         <input name="passwords[new]" class="form-control" placeholder='new password' type="password">
+        <button type="submit" class="btn btn-primary">Confirm!</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </form>
+     </div>
+    </div>
+   </div>
+  </div>
+</section>
+<section class="authenicated-sign-out">
+  <div class="modal fade" id="signOutModal" tabindex="-1"
+  role="dialog" aria-labelledby="signOutModal" aria-hidden="true">
+  <div class =modal-dialog>
+    <div class="modal-content">
+     <div class="modal-header">
+       <h5 class="modal-title">Sign out!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-footer">
+       <button type="click" id='sign-out' class="btn btn-primary">Sign-out</button>
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+   </div>
+  </div>
+ </div>
+</div>
+</section>
+<section class='msgheading' id="message">
+<div class="row" >
+  <div class='col-md-6 offset-md-3'>
+    <p> Welcome!  Sign up to play tic-tac-toe.</p></div>
+</div>
+</section>
+<section class='container' >
+  <div class="bg-info clearfix disabled" id="startBar" >
+    <button type="button" id="btnStartGame" class="btn btn-success btn-lg float-right">Start Game</button>
+    <button type="button" id="btnGamesPlayed" class="btn btn-secondary btn-lg float-left ">Games Played :</button>
+    <p id="gamesPlayed" class='lblgamesplayed'></p>
+  </div>
+  <div class='row h-75 w-85 board'>
+    <div class='col-4 box' data-id='0'></div>
+    <div class='col-4 box' data-id='1'></div>
+    <div class='col-4 box' data-id='2'></div>
+    <div class='col-4 box' data-id='3'></div>
+    <div class='col-4 box' data-id='4'></div>
+    <div class='col-4 box' data-id='5'></div>
+    <div class='col-4 box' data-id='6'></div>
+    <div class='col-4 box' data-id='7'></div>
+    <div class='col-4 box' data-id='8'></div>
+  </div>
+</section>
+</body>
+</html>
