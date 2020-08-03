@@ -17,7 +17,6 @@ const onNewGame = function(){
   $('.box').gamePlay = true
   //reset all the variables
   logic.resetVariables()
-  $('#btnStartGame').removeClass('disabled').addClass('enabled')
   //create the new game
   api.createGame()
       .then(ui.newGameSuccess)//if game is created
